@@ -1,9 +1,14 @@
 import "./App.css";
+import AppCarousel from "./components/AppCarousel/AppCarousel";
+import AppFooter from "./components/AppFooter/AppFooter";
+import AppHeader from "./components/AppHeader/AppHeader";
 
 function App() {
   return (
-    <div className="Title">
-      <h1>ORGANIZA</h1>
+    <div>
+      <AppHeader/>
+      <AppCarousel/>
+      <AppFooter />
     </div>
   );
 }
