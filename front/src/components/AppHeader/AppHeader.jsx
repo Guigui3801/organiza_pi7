@@ -1,23 +1,18 @@
-import React from 'react';
-import { Layout, Menu, Button } from 'antd';
-import './AppHeader.styles.scss';
-
-const { Header } = Layout;
+import { Link } from "react-router-dom";
+import React from "react";
+import "./AppHeader.styles.scss";
 
 const AppHeader = () => {
   return (
-    <Header className="header">
-      <div className="logo">MY WEBSITE</div>
-      <div className="nav">
-        <Menu className="menu" theme="dark" mode="horizontal">
-          <Menu.Item key="1">HOME</Menu.Item>
-          <Menu.Item key="2">ABOUT</Menu.Item>
-          <Menu.Item key="3">SERVICES</Menu.Item>
-          <Menu.Item key="4">CONTACT</Menu.Item>
-        </Menu>
-        <Button className="btn" type="primary">GET STARTED</Button>
+    <header>
+      <h2>ORGANIZA</h2>
+      <div className="menu">
+        <Link to="/">Home</Link>
+        <Link to="/sobre">Sobre</Link>
+        <Link to="/contact">Contato</Link>
+        <Link to="/services">Serviços</Link>
       </div>
-    </Header>
+    </header>
   );
 };
 
