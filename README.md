@@ -1,6 +1,6 @@
 Para usar o back end:
 
-1- Baixe o Postgree versão 11:  
+1- Baixe o Postgres versão 11:  
 https://www.postgresql.org/download/
 
 2- Deixe sua sua senha como: `admin`
