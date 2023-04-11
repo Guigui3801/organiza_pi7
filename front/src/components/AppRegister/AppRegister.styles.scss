@@ -1,0 +1,27 @@
+.container{
+    background-color: aquamarine;
+    border-radius: 15px;
+    padding: 10%;
+    margin: 20% auto;
+    font-weight: bold;
+}
+.container h2{
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 25px;
+}
+.container input{
+    display: block;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+}
+.container label{
+    font-size: small;
+}
+.container button{
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+}
+
