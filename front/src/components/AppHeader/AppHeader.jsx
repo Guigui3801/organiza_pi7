@@ -11,6 +11,7 @@ const AppHeader = () => {
         <Link to="/sobre">Sobre</Link>
         <Link to="/contact">Contato</Link>
         <Link to="/services">Serviços</Link>
+        <Link to="/Register">Cadastre-se</Link>
       </div>
     </header>
   );

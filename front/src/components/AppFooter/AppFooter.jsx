@@ -9,15 +9,15 @@ export default function AppFooter  ()  {
       <Row>
         <Col xs={24} sm={24} md={6}>
           <div className="logo-container">
-            <img src="https://www.nike.com.br/Static/Images/NikeLogo.svg" alt="Nike" className="logo" />
+            <img src="https://www.ORGANIZA.com.br/Static/Images/NikeLogo.svg" alt="ORGANIZA" className="logo" />
           </div>
         </Col>
         <Col xs={24} sm={24} md={18}>
           <Row>
             <Col xs={24} sm={8} md={6}>
-              <h4 className="footer-title">Sobre a Nike</h4>
+              <h4 className="footer-title">Sobre a ORGANIZA</h4>
               <ul className="footer-links">
-                <li><a href="#">Sobre a Nike</a></li>
+                <li><a href="#">Sobre a ORGANIZA</a></li>
                 <li><a href="#">Investidores</a></li>
                 <li><a href="#">Sustentabilidade</a></li>
               </ul>
@@ -39,7 +39,7 @@ export default function AppFooter  ()  {
               </ul>
             </Col>
             <Col xs={24} sm={8} md={6}>
-              <h4 className="footer-title">Siga a Nike</h4>
+              <h4 className="footer-title">Siga a ORGANIZA</h4>
               <div className="social-links">
                 <a href="#"><FacebookOutlined className="social-icon" /></a>
                 <a href="#"><InstagramOutlined className="social-icon" /></a>
@@ -51,7 +51,7 @@ export default function AppFooter  ()  {
         </Col>
       </Row>
       <div className="footer-divider" />
-      <p className="footer-text">© 2023 Nike, Inc. Todos os direitos reservados.</p>
+      <p className="footer-text">© 2023 ORGANIZA, Inc. Todos os direitos reservados.</p>
     </Footer>
   );
 };
