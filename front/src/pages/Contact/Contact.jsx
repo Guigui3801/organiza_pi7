@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import AppFooter from "../../components/AppFooter/AppFooter";
+import AppContact from "../../components/AppContact/AppContact";
 
-export default function Contact() {
+export default function Home() {
   return (
-    <div>Contact</div>
-  )
+    <div>
+      <AppContact />
+
+    </div>
+  );
 }
