@@ -6,13 +6,13 @@ const AppHeader = () => {
   return (
     <header>
       <h2>ORGANIZA</h2>
-      <div className="menu">
-        <Link to="/">Home</Link>
-        <Link to="/sobre">Sobre</Link>
-        <Link to="/contact">Contato</Link>
-        <Link to="/services">Serviços</Link>
-        <Link to="/Register">Cadastre-se</Link>
-      </div>
+      <ul className="menu">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/sobre">Sobre</Link></li>
+        <li><Link to="/contact">Contato</Link></li>
+        <li><Link to="/services">Serviços</Link></li>
+      </ul>
+      <button className="cadastro-btn">Cadastre-se</button>
     </header>
   );
 };
