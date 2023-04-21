@@ -8,7 +8,7 @@ const AppHeader = () => {
       <h2>ORGANIZA</h2>
       <ul className="menu">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/sobre">Sobre</Link></li>
+        <li><Link to="/about">Sobre</Link></li>
         <li><Link to="/contact">Contato</Link></li>
         <li><Link to="/services">Serviços</Link></li>
       </ul>
