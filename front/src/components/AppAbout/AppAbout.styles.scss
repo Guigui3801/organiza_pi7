@@ -1,0 +1,64 @@
+.about-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-bottom: 22px;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: none;
+    background-color: #fff;
+    border-color: black;
+    border: 3px solid black;
+    box-shadow: 5px 7px 0px black;
+}
+
+h1 {
+    color: #7a4397;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.image-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: calc(33.33% - 1rem);
+}
+
+.image {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.image-description {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: center;
+    color: #000000;
+    max-width: 200px;
+}
+
+.image-email {
+    font-style: italic;
+}
