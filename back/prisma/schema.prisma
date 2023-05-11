@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,14 +7,86 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// criar migration: yarn prisma migrate dev
-model User {
-  id         String    @id @default(uuid())
-  name       String
-  email      String
-  password   String
-  created_at DateTime? @default(now())
-  updated_at DateTime? @default(now())
+//yarn prisma migrate dev
 
-  @@map("users")
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String
+  email        String
+  password     String
+  authorized   Boolean   @default(false)
+  deleted      Boolean   @default(false)
+  active       Boolean   @default(true)
+  admin        Boolean   @default(false)
+  avatar       String?
+  subscriber   Boolean   @default(false)
+  boards       Board[]
+  experience   BigInt?
+  luck         Int?
+  payment_date DateTime?
+  created_at   DateTime? @default(now())
+  updated_at   DateTime? @default(now())
+  deleted_at   DateTime?
+
+  @@map("user")
+}
+
+model Board {
+  id         Int        @id
+  ownerId    Int        @unique
+  name       String
+  created_at DateTime?  @default(now())
+  updated_at DateTime?  @default(now())
+  deleted_at DateTime?
+  owner      User       @relation(fields: [ownerId], references: [id])
+  reference  Int
+  priority   Int        @default(0)
+  boosted    Boolean    @default(false)
+  tasks      Task[]
+  toDoLists  ToDoList[]
+
+  @@map("board")
+}
+
+model Task {
+  id          Int       @id
+  name        String
+  completed   Boolean   @default(false)
+  due_to      DateTime?
+  reference   Board     @relation(fields: [referenceId], references: [id])
+  referenceId Int
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @default(now())
+  deleted_at  DateTime?
+
+  @@map("tasks")
+}
+
+model ToDoList {
+  id          Int        @id
+  name        String
+  reference   Board      @relation(fields: [referenceId], references: [id])
+  referenceId Int
+  UnitTasks   UnitTask[]
+  created_at  DateTime   @default(now())
+  updated_at  DateTime   @default(now())
+  deleted_at  DateTime?
+
+  @@map("todolist")
+}
+
+model UnitTask {
+  id          Int       @id
+  name        String
+  created_at  DateTime? @default(now())
+  updated_at  DateTime? @default(now())
+  deleted_at  DateTime?
+  reference   ToDoList  @relation(fields: [referenceId], references: [id])
+  referenceId Int
+  completed   Boolean   @default(false)
+  postponed   Boolean   @default(false)
+  forgot      Boolean   @default(false)
+  abandonned  Boolean   @default(false)
+
+  @@map("unitTask")
 }
