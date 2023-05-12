@@ -4,15 +4,19 @@ import { hash } from "bcryptjs";
 
 
 class CreateUserService {
-  async execute({ name, email, password }: User) {
+  async execute({ name, email, password}: User) {
     // verificar se o usuario enviou o email
 
     if (!email) {
-      throw new Error("Email Incorrect");
+      throw new Error("Sem Email");
     }
 
-    // caso o email já esteja cadastrado
+   
 
+    //Número de 1 a 99 aleatório para a "sorte" do usuário. Reservado para uso futuro.
+    const luckRNG = Math.floor(Math.random() * 98) + 1;
+
+    // caso o email já esteja cadastrado
     const userAlreadyExists = await prismaClient.user.findFirst({
       where: {
         email: email,
@@ -24,7 +28,7 @@ class CreateUserService {
     }
 
     // criptografando a senha
-    const passwordHash = await hash(password, 8);
+    const passwordHash = await hash(password, 10);
 
     // criar um usuário
     const user = await prismaClient.user.create({
@@ -32,6 +36,9 @@ class CreateUserService {
         name: name,
         email: email,
         password: passwordHash,
+        created_at: new Date(),
+        updated_at: new Date(),
+        luck: luckRNG,
       },
       select: {
         id: true,
