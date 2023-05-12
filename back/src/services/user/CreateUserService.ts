@@ -11,12 +11,7 @@ class CreateUserService {
       throw new Error("Sem Email");
     }
 
-    // O data estava teimando que precisava de um ID, então fiz e função. depois fiz o fix mas decidi salvar a função
-    // const maxIdValue = await prismaClient.user.findFirst({
-    //   orderBy: {
-    //     id: 'desc',
-    //   },
-    // });
+   
 
     //Número de 1 a 99 aleatório para a "sorte" do usuário. Reservado para uso futuro.
     const luckRNG = Math.floor(Math.random() * 98) + 1;

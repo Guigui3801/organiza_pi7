@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/models"
 }
 
 datasource db {
@@ -10,7 +11,7 @@ datasource db {
 //yarn prisma migrate dev
 
 model User {
-  id           Int       @id @default(autoincrement())
+  id           String      @id @default(dbgenerated()) @db.Uuid
   name         String
   email        String
   password     String
@@ -32,13 +33,13 @@ model User {
 }
 
 model Board {
-  id         Int        @id
-  ownerId    Int        @unique
+  id         String        @id @db.Uuid
+  ownerId    String        @db.Uuid
   name       String
   created_at DateTime?  @default(now())
   updated_at DateTime?  @default(now())
   deleted_at DateTime?
-  owner      User       @relation(fields: [ownerId], references: [id])
+  owner User @relation(fields: [ownerId], references: [id]) 
   reference  Int
   priority   Int        @default(0)
   boosted    Boolean    @default(false)
@@ -49,12 +50,12 @@ model Board {
 }
 
 model Task {
-  id          Int       @id
+  id         String        @id @db.Uuid
   name        String
   completed   Boolean   @default(false)
   due_to      DateTime?
   reference   Board     @relation(fields: [referenceId], references: [id])
-  referenceId Int
+  referenceId String    @db.Uuid
   created_at  DateTime  @default(now())
   updated_at  DateTime  @default(now())
   deleted_at  DateTime?
@@ -63,10 +64,10 @@ model Task {
 }
 
 model ToDoList {
-  id          Int        @id
+  id         String      @id @db.Uuid
   name        String
   reference   Board      @relation(fields: [referenceId], references: [id])
-  referenceId Int
+  referenceId String     @db.Uuid
   UnitTasks   UnitTask[]
   created_at  DateTime   @default(now())
   updated_at  DateTime   @default(now())
@@ -76,13 +77,13 @@ model ToDoList {
 }
 
 model UnitTask {
-  id          Int       @id
+  id         String        @id @db.Uuid
   name        String
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
   deleted_at  DateTime?
   reference   ToDoList  @relation(fields: [referenceId], references: [id])
-  referenceId Int
+  referenceId String    @db.Uuid
   completed   Boolean   @default(false)
   postponed   Boolean   @default(false)
   forgot      Boolean   @default(false)

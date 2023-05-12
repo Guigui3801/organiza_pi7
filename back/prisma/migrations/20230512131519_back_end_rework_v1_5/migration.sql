@@ -9,7 +9,7 @@ DROP TABLE "users";
 
 -- CreateTable
 CREATE TABLE "user" (
-    "id" INTEGER NOT NULL,
+    "id" UUID NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
@@ -31,8 +31,8 @@ CREATE TABLE "user" (
 
 -- CreateTable
 CREATE TABLE "board" (
-    "id" INTEGER NOT NULL,
-    "ownerId" INTEGER NOT NULL,
+    "id" UUID NOT NULL,
+    "ownerId" UUID NOT NULL,
     "name" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
@@ -46,11 +46,11 @@ CREATE TABLE "board" (
 
 -- CreateTable
 CREATE TABLE "tasks" (
-    "id" INTEGER NOT NULL,
+    "id" UUID NOT NULL,
     "name" TEXT NOT NULL,
     "completed" BOOLEAN NOT NULL DEFAULT false,
     "due_to" TIMESTAMP(3),
-    "referenceId" INTEGER NOT NULL,
+    "referenceId" UUID NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deleted_at" TIMESTAMP(3),
@@ -60,9 +60,9 @@ CREATE TABLE "tasks" (
 
 -- CreateTable
 CREATE TABLE "todolist" (
-    "id" INTEGER NOT NULL,
+    "id" UUID NOT NULL,
     "name" TEXT NOT NULL,
-    "referenceId" INTEGER NOT NULL,
+    "referenceId" UUID NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deleted_at" TIMESTAMP(3),
@@ -72,12 +72,12 @@ CREATE TABLE "todolist" (
 
 -- CreateTable
 CREATE TABLE "unitTask" (
-    "id" INTEGER NOT NULL,
+    "id" UUID NOT NULL,
     "name" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "deleted_at" TIMESTAMP(3),
-    "referenceId" INTEGER NOT NULL,
+    "referenceId" UUID NOT NULL,
     "completed" BOOLEAN NOT NULL DEFAULT false,
     "postponed" BOOLEAN NOT NULL DEFAULT false,
     "forgot" BOOLEAN NOT NULL DEFAULT false,
@@ -85,9 +85,6 @@ CREATE TABLE "unitTask" (
 
     CONSTRAINT "unitTask_pkey" PRIMARY KEY ("id")
 );
-
--- CreateIndex
-CREATE UNIQUE INDEX "board_ownerId_key" ON "board"("ownerId");
 
 -- AddForeignKey
 ALTER TABLE "board" ADD CONSTRAINT "board_ownerId_fkey" FOREIGN KEY ("ownerId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
