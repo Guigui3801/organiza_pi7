@@ -1,6 +1,6 @@
 interface Board {
     id: string;
-    
+    ownerId:string;
 
   }
   
