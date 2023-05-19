@@ -1,4 +1,16 @@
-Para usar o back end:
+# Para Rodar o Sistema:
+
+## Para Instalar:
+npm install em:
+/
+/front
+/back
+
+## Para Executar:
+na pasta Root(/) execute:
+""" npm run ignite"""
+
+# Para usar o back end:
 
 1- Baixe o Postgres versão 11:  
 https://www.postgresql.org/download/

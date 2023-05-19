@@ -1,6 +1,7 @@
 import prismaClient from "../../prisma/index";
 import { User } from "../../models/user/User";
 import { hash } from "bcryptjs";
+import { v4 as uuidv4 } from 'uuid';
 
 
 class CreateUserService {
@@ -31,8 +32,10 @@ class CreateUserService {
     const passwordHash = await hash(password, 10);
 
     // criar um usuário
+    const id = uuidv4();
     const user = await prismaClient.user.create({
       data: {
+        id: id,
         name: name,
         email: email,
         password: passwordHash,
