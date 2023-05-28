@@ -5,7 +5,7 @@ interface toDoList {
     id: string;
     name:string;
     owner:User;
-    referenceId:string;
+    referenceId: string | null;
     UnitTasks:UnitTask[];
     created_at:Date;
     updated_at:Date;

@@ -1,8 +1,9 @@
 import prismaClient from "../../prisma/index";
-import { toDoList, UnitTask, User } from "../../models/toDoList/ToDoList";
+import { toDoList, UnitTask } from "../../models/toDoList/ToDoList";
 
 class UpdateListService {
-  async execute({ id, name, referenceId, UnitTasks, created_at, updated_at, deleted_at, owner }: toDoList) {
+ 
+  async execute({ id, name, referenceId, UnitTasks, updated_at, deleted_at, owner }: toDoList) {
     try {
       const nestedUnitTasks = UnitTasks.map((unitTask: UnitTask) => ({
         where: { id: unitTask.id },
@@ -49,10 +50,6 @@ class UpdateListService {
           UnitTasks: {
             updateMany: nestedUnitTasks,
           },
-          owner: {
-            update: nestedOwner,
-          },
-          created_at: created_at,
           updated_at: updated_at,
           deleted_at: deleted_at,
         },

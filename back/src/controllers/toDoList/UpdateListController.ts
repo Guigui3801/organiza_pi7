@@ -9,17 +9,20 @@ export class UpdateListController {
 
         try {
             const list = await updateListService.execute({
-                id,
-                name,
-                owner,
-                referenceId,
-                UnitTasks,
-                created_at,
-                updated_at,
-                deleted_at,
+              id,
+              name,
+              owner,
+              referenceId,
+              UnitTasks,
+              created_at,
+              updated_at,
+              deleted_at,
             });
-        } catch (error) {
+          
+            return res.json(list);
+          } catch (error) {
             return res.status(400).json({ message: error.message });
-        }
+          }
+          
     }
 }
