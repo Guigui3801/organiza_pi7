@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/models"
 }
 
 datasource db {
@@ -22,6 +21,7 @@ model User {
   avatar       String?
   subscriber   Boolean   @default(false)
   boards       Board[]
+  toDoLists    ToDoList[]
   experience   BigInt?
   luck         Int?
   payment_date DateTime?
@@ -44,7 +44,6 @@ model Board {
   priority   Int        @default(0)
   boosted    Boolean    @default(false)
   tasks      Task[]
-  toDoLists  ToDoList[]
 
   @@map("board")
 }
@@ -66,7 +65,7 @@ model Task {
 model ToDoList {
   id         String      @id @db.Uuid
   name        String
-  reference   Board      @relation(fields: [referenceId], references: [id])
+  owner   User      @relation(fields: [referenceId], references: [id])
   referenceId String     @db.Uuid
   UnitTasks   UnitTask[]
   created_at  DateTime   @default(now())
@@ -88,6 +87,7 @@ model UnitTask {
   postponed   Boolean   @default(false)
   forgot      Boolean   @default(false)
   abandonned  Boolean   @default(false)
+  forbidden   Boolean   @default(false)
 
   @@map("unitTask")
 }
