@@ -1,4 +1,16 @@
-Para usar o back end:
+# Para Rodar o Sistema:
+
+## Para Instalar:
+npm install em:
+/
+/front
+/back
+
+## Para Executar:
+na pasta Root(/) execute:
+""" npm run ignite"""
+
+# Para usar o back end:
 
 1- Baixe o Postgres versão 11:  
 https://www.postgresql.org/download/
@@ -15,3 +27,21 @@ https://www.postgresql.org/download/
 
 6- Agora dê um `yarn dev` e rode seu prjeto :D 
 
+## Rotas do BackEnd
+### v_0.8
+/users
+/session
+/userDetails
+/updateList
+/createList
+
+### v_1.0 (unreleased)
+/users
+/userDetails
+/updateUser << new >>
+/userStatus << new >>
+/session
+/updateList
+/createList
+/createKanban << new >>
+/updateKanban << new >>
