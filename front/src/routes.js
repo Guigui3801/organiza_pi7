@@ -8,6 +8,7 @@ import AppHeader from "./components/AppHeader/AppHeader";
 import Error from "./pages/Error/Error";
 import Kanban from "./pages/Kanban/Kanban";
 import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
 
 export default function Router() {
   return (
@@ -20,6 +21,7 @@ export default function Router() {
         <Route path={"/services"} element={<Services />} />
         <Route path={"/kanban/:id"} element={<Kanban />} />
         <Route path={"/register"} element={<Register />} />
+        <Route path={"/login"} element={<Login />} />
 
 
         <Route path={"*"} element={<Error />} />
