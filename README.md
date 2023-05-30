@@ -1,14 +1,14 @@
 # Para Rodar o Sistema:
 
 ## Para Instalar:
-npm install em:
+yarn install em:
 /
 /front
 /back
 
 ## Para Executar:
 na pasta Root(/) execute:
-""" npm run ignite"""
+""" yarn run ignite"""
 
 # Para usar o back end:
 

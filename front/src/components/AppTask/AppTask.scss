@@ -1,0 +1,24 @@
+.AppTask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    .addTask {
+      min-width: 200px;
+    }
+  
+    .spacer {
+      height: 5vh;
+    }
+  
+    .container {
+      padding: 5% 10% !important;
+    }
+    .addMenu{
+        margin-top:3%;
+        border-radius: 10px;
+    }
+  }
+  
