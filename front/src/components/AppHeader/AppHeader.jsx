@@ -12,7 +12,7 @@ const AppHeader = () => {
         <li><Link to="/contact">Contato</Link></li>
         <li><Link to="/services">Serviços</Link></li>
       </ul>
-      <button className="cadastro-btn">Cadastre-se</button>
+      <button className="cadastro-btn"><Link to="/register">Cadastre-se</Link></button>
     </header>
   );
 };
