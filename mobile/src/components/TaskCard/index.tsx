@@ -13,27 +13,28 @@ interface TasksList {
   forgot?: boolean;
   abandoned?: boolean;
   forbidden?: boolean;
+  status?: string
 }
 
 const LeftContent = (props) => <Avatar.Icon {...props} icon="check" />;
 
-export default function TaskCard({ name, created_at, completed }: TasksList) {
+export default function TaskCard({ name, created_at, completed, status }: TasksList) {
   const [isChecked, setIsChecked] = useState<boolean>(completed);
   return (
-    <Card>
+    <Card style={{marginVertical: 10}}>
       <Card.Content
         style={{
           width: 300,
         }}
       >
         <Card.Title
-          subtitle="Nome da tarefa"
+          subtitle={name}
           left={LeftContent}
-          title={"Status da tarefa"}
+          title={status}
         />
         <Divider />
         <Text style={{ marginLeft: 20, marginTop: 10 }}>
-          Status: {completed}
+          Status: {completed ? 'Feita' : 'Não feita'}
         </Text>
         <Text style={{ marginLeft: 20, marginTop: 10 }}>
           Criado em: {created_at}
