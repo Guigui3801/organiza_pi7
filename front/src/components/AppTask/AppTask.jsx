@@ -1,41 +1,29 @@
 import React, { useState } from "react";
 import "./AppTask.scss";
 import { Button, Menu, Input } from "antd";
+import { CreateTask } from "./AppTask.Service";
 
 const taskData = [
-    {
-        id: 1,
-        name: 'Comer um pão',
-        created_at: '27/05/2023',
-        completed: false,
-        postponed: true,
-        forgot: false,
-        abandoned: false,
-        forbidden: true,
-    },
+
 ];
 
 const AppTask = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [menuTarefasOpen, setMenuTarefasOpen] = useState(false);
+
 
     const handleAdd = () => {
         setMenuOpen(!menuOpen);
     };
-    const handleAppend = () => {
-        if (inputValue != ''){
-        taskData.push({
-            id: taskData.length + 1,
-            name: inputValue,
-            created_at: new Date().toLocaleDateString(),
-            completed: false,
-            postponed: true,
-            forgot: false,
-            abandoned: false,
-            forbidden: true,
-        });
-        setInputValue('');
+    const handleTaks = () => {
+        setMenuTarefasOpen(!menuTarefasOpen);
     }
+    const handleAppend = () => {
+        if (inputValue != '') {
+            CreateTask(inputValue);            
+            setInputValue('');
+        }
         setMenuOpen(!menuOpen);
     }
 
@@ -49,19 +37,55 @@ const AppTask = () => {
                 </Button>
                 <Menu mode="inline" theme="dark" className='addMenu' hidden={!menuOpen}>
                     <Menu.Item key="1">
-                        <Input placeholder="Nome da tarefa" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+                        <Input placeholder="Nome da tarefa" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
                     </Menu.Item>
                     <Menu.Item key="2"><Button onClick={() => handleAppend()}>Adicionar</Button></Menu.Item>
                 </Menu>
                 <div className="spacer" />
-                <h2>Suas tarefas:</h2>
-                {taskData.map((task) => (
-                    <div key={task.id}>
-                        <p>
-                            {task.name} => Criada em => {task.created_at}
-                        </p>
-                    </div>
-                ))}
+                {/* button */}
+                <Button className="showTasks" type="default" onClick={handleTaks}>
+                    <h3>
+                        Suas Tarefas :
+                    </h3>
+                </Button>
+                <div className="spacer" />
+                <Menu
+                    mode="inline"
+                    style={{
+                        backgroundColor: 'transparent',
+                    }}
+                    className="showTasks"
+                    hidden={!menuTarefasOpen}
+                >
+                    {taskData.length === 0 ? (
+                        <p>Todas as tarefas concluídas!</p>
+                    ) : (
+                        taskData.map((task) => (
+                            <div key={task.id}>
+                                <p
+                                    style={{
+                                        paddingBottom: '25px',
+                                        color:
+                                            task.completed
+                                                ? 'green'
+                                                : task.postponed ||
+                                                    task.forgot ||
+                                                    task.abandoned ||
+                                                    task.forbidden
+                                                    ? 'red'
+                                                    : 'black',
+                                    }}
+                                >
+                                    {task.name} =&gt; Criada em =&gt; {task.created_at}
+                                </p>
+                                <br />
+                            </div>
+                        ))
+                    )}
+                </Menu>
+
+
+
             </div>
         </div>
     );
