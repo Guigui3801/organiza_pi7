@@ -4,9 +4,9 @@ import AppFooter from '../../components/AppFooter/AppFooter';
 
 export default function Home() {
   return (
-    <div>
+    <>
       <AppCarousel/>
       <AppFooter />
-    </div>
+    </>
   );
 }

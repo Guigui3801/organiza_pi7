@@ -29,7 +29,7 @@ const Login = () => {
           value={password}
           onChangeText={setPassword}
         />
-        <S.Button title="Login" onPress={() => {handleLogin()}} />
+        <S.Button title="Login" onPress={handleLogin} />
       </S.FormContainer>
     </S.Container>
   );
