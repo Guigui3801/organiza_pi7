@@ -1,0 +1,45 @@
+.pomodoro {
+    *{
+        padding: 0;
+        margin: 0;
+    }
+  text-align: center;
+  h1 {
+    padding-top: 20px;
+    font-size: 2em;
+  }
+  .interview{
+    font-size: 1.5em;
+  }
+  .timer {
+    font-size: 12em;
+
+  }
+
+  .btn_pomodoro {
+   font-size: 3em;
+    button {
+        height: 2em;
+        width: 5em;
+        color: #7a4397;
+        margin: 10px;
+        background-color: white;
+        border-color: black;
+        border: 3px solid black;
+        box-shadow: 0.5px 3px 0px black;
+    }
+  }
+
+  
+  .cycle{
+    padding-top: 3em;
+    justify-content: center;
+    display: flex;
+    button{
+        margin: 0;
+        color: #7a4397;
+        background-color: transparent;
+        border: none;
+    }
+  }
+}
