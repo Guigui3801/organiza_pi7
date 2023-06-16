@@ -2,9 +2,10 @@ import React, { useState, useContext } from "react";
 import { Row, Col, Input, Form, Button } from 'antd';
 import { registerUser } from "./AppRegister.services";
 import './AppRegister.styles.scss';
-
+import { useNavigate } from 'react-router-dom';
 
 const AppRegister = () => {
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -100,7 +101,10 @@ const AppRegister = () => {
 
 
                         <Row justify={'center'}>
-                            <Button type="default" htmlType="submit" >CADASTRAR</Button>
+                            <Button type="default" className="bnt" htmlType="submit" >CADASTRAR</Button>
+                            <span onClick={() => navigate('/login')}>
+                                Se ja tiver uma conta, clique aqui
+                            </span>
                         </Row>
                     </Form>
                 </div>
