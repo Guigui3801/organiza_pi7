@@ -1,6 +1,18 @@
 import api from '../../services/api';
 
 const registerUser = (name,email,password) => {
+    if(name ===''){
+        //alert('passo aqui 1');
+        return;
+    }
+    if(email ===''){
+        //alert('passo aqui 2');
+        return;
+    }
+    if(password ===''){
+        //alert('passo aqui 3');
+        return;
+    }
     const body = {
         name: name,
         email: email,
