@@ -1,16 +1,16 @@
 import api from '../../services/api';
-import { notification } from 'antd';
+
 const registerUser = (name,email,password) => {
-    if(name =''){
-        alert('passo aqui');
+    if(name ===''){
+        //alert('passo aqui 1');
         return;
     }
-    if(email =''){
-        alert('passo aqui');
+    if(email ===''){
+        //alert('passo aqui 2');
         return;
     }
-    if(password =''){
-        alert('passo aqui');
+    if(password ===''){
+        //alert('passo aqui 3');
         return;
     }
     const body = {
@@ -24,12 +24,7 @@ const registerUser = (name,email,password) => {
         localStorage.setItem('token',token)
         //mandar para tela de todos
         return res;
-    }).catch((err) =>{
-        notification.error({
-            message: 'E-mail já existente',
-            description: '',
-        });
-    })
+    }).catch((err) =>{alert(err)})
     return response;
 }
 export {registerUser};
