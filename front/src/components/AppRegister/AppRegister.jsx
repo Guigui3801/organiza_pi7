@@ -1,32 +1,51 @@
 import React, { useState, useContext } from "react";
-import { Row, Col, Input, Form, Button } from 'antd';
+import { Row, Col, Input, Form, Button, notification } from 'antd';
 import { registerUser } from "./AppRegister.services";
 import './AppRegister.styles.scss';
 import { useNavigate } from 'react-router-dom';
 
 const AppRegister = () => {
-    const navigate = useNavigate();
+    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
 
     const handleSubmit = async () => {
-        alert(name+" ,"+email+" ,"+password+" ,"+confirmpassword)
+        //alert(name+" ,"+email+" ,"+password+" ,"+confirmpassword)
         if (name === '') {
+            notification.error({
+                message: 'Erro de validação',
+                description: 'Por favor, preencha o campo nome.',
+            });
             return;
         }
         if (email === '') {
+            notification.error({
+                message: 'Erro de validação',
+                description: 'Por favor, preencha o campo e-mail.',
+            });
             return;
         }
         if (password === '') {
+            notification.error({
+                message: 'Erro de validação',
+                description: 'Por favor, preencha o campo senha.',
+            });
             return;
         }
         if (confirmpassword === '') {
+            notification.error({
+                message: 'Erro de validação',
+                description: 'Por favor, preencha o campo confirmar senha.',
+            });
             return;
         }
-        if (password != confirmpassword) {
-            alert('As senhas não são iguais')
+        if (password !== confirmpassword) {
+            notification.error({
+                message: 'Erro de validação',
+                description: 'As senhas não são iguais.',
+            });
             return;
         }
         //criar objeto  com os dados 

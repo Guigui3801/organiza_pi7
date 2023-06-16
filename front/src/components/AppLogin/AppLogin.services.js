@@ -13,7 +13,7 @@ const loginUser = (email, password) => {
       return '/pomodoro'; // Rota de redirecionamento como uma string
     })
     .catch((err) => {
-      alert(err);
+      //alert(err);
       return null; // Retornar null em caso de erro
     });
 };
