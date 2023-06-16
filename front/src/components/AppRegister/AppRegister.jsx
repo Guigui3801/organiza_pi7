@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Row, Col, Input, Form, Button } from 'antd';
-import axios from 'axios';
+import { registerUser } from "./AppRegister.services";
 import './AppRegister.styles.scss';
 
 
@@ -10,8 +10,8 @@ const AppRegister = () => {
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
 
-    function handleAdd() {
-        //alert(name+" ,"+email+" ,"+password+" ,"+confirmpassword)
+    const handleSubmit = async () => {
+        alert(name+" ,"+email+" ,"+password+" ,"+confirmpassword)
         if (name === '') {
             return;
         }
@@ -29,11 +29,7 @@ const AppRegister = () => {
             return;
         }
         //criar objeto  com os dados 
-        const userData = {
-            name,
-            email,
-            password,
-        }
+        await registerUser(name, email, password)
     
     }
     return (
@@ -46,7 +42,7 @@ const AppRegister = () => {
                         labelCol={{ span: 8 }}
                         wrapperCol={{ span: 16, offset: 4 }}
                         style={{ maxWidth: 600 }}
-                        layout={"vertical"} onSubmitCapture={handleAdd}>
+                        layout={"vertical"} onSubmitCapture={handleSubmit}>
 
 
 

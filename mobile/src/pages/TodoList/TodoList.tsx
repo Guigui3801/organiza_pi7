@@ -1,58 +1,19 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import Checkbox from "expo-checkbox";
 import React, { useState } from "react";
+import TaskCard from "../../components/TaskCard";
+import { Button } from "react-native-paper";
 
 export default function TodoList() {
-  const [isChecked, setIsChecked] = useState(false);
-
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <View
-        style={{
-          width: 300,
-          height: 200,
-          backgroundColor: "#d9d9d9",
-        }}
-      >
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 20, marginTop: 20 }}>
-        <Checkbox
-          style={styles.checkbox}
-          value={isChecked}
-          onValueChange={setIsChecked}
-          color={isChecked ? "#84dcc6" : undefined}
-          />
-        <Text> Tarefa: Lavar a louça</Text>
-          </View>
-        <View
-          style={{
-            marginTop: 10,
-            marginHorizontal: 10,
-            borderBottomColor: "black",
-            borderBottomWidth: StyleSheet.hairlineWidth,
-          }}
-          />
-          <Text style={{marginLeft: 30, marginTop: 30}}> Status: A fazer</Text>
-
-
-          
-      </View>
-    </View>
+    <ScrollView style={{ flex: 1, marginTop: 30}}>
+      <TaskCard name="Lavar a louça" created_at="20/05/2023" completed={true} status="Não feita" />
+      <TaskCard name="Limpar o quarto" created_at="13/06/2023" completed={true} status="Não feita" />
+      <TaskCard name="Lavar a louça" created_at="14/05/2002" completed={true} status="Não feita" />
+      <TaskCard name="Lavar a louça" created_at="17/05/2002" completed={true} status="Não feita" />
+      <TaskCard name="Lavar a louça" created_at="18/05/2002" completed={true} status="Não feita" />
+      <TaskCard name="Lavar a louça" created_at="10/05/2002" completed={true} status="Não feita" />
+      <TaskCard name="Lavar a louça" created_at="12/06/2002" completed={true} status="Não feita" />
+    </ScrollView>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 16,
-    marginVertical: 32,
-  },
-  section: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  paragraph: {
-    fontSize: 15,
-  },
-  checkbox: {
-    margin: 8,
-  },
-});
