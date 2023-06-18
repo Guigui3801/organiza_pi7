@@ -1,18 +1,28 @@
 import React, { useState } from "react";
-import { Row, Col, Input, Form, Button } from 'antd';
+import { Row, Col, Input, Form, Button,notification } from 'antd';
 import { loginUser } from "./AppLogin.services";
 import './AppLogin.styles.scss';
+import { useNavigate } from 'react-router-dom';
 
 const AppLogin = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
 
-    const handleSubmit = async () => {
-      await loginUser(email, password)
-    };
-  
-  
+  const handleSubmit = async () => {
+    await loginUser(email, password).then((redirectUrl) => {
+      if (redirectUrl) {
+        navigate('/pomodoro'); 
+      }else{
+        notification.error({
+          message: 'Erro de autenticação',
+          description: 'E-mail ou senha incorretos. Por favor, tente novamente.',
+        });
+      }
+    });
+};
+
 
   return (
     <Row justify={"center"}>

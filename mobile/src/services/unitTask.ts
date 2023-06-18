@@ -1,8 +1,8 @@
 import { api } from "./api";
 
-const fetchUserUnitTasks = async () => {
+const fetchUserUnitTasks = async (id: string) => {
   try {
-    const response = await api.get("/userUnitTasks");
+    const response = await api.get("/userUnitTasks/" + id);
     return response.data;
   } catch (error) {
     console.log("Erro ao buscar:", error);
@@ -10,4 +10,4 @@ const fetchUserUnitTasks = async () => {
   }
 };
 
-export {fetchUserUnitTasks};
+export default fetchUserUnitTasks;

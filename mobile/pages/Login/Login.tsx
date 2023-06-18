@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import * as S from "./Login.styles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AuthContext } from "../../contexts/AuthContext";
+import { AuthContext } from '../../src/contexts/AuthContext';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
