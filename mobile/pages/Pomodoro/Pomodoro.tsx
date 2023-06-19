@@ -16,7 +16,7 @@ const Pomodoro = () => {
   const [resetTimer, setResetTimer] = useState(false);
   const [isRest, setIsRest] = useState(false);
   const [isRestTimerStart, setIsRestTimerStart] = useState(false);
-  const [restTimerDuration, setRestTimerDuration] = useState(1500000);
+  const [restTimerDuration, setRestTimerDuration] = useState(3000);
   const [resetRestTimer, setRestResetTimer] = useState(false);
 
   return (
@@ -59,6 +59,7 @@ const Pomodoro = () => {
         <TouchableHighlight
           onPress={() => {
             setIsRestTimerStart(!isRestTimerStart);
+            setResetTimer(false);
           }}
         >
           <Text style={styles.buttonText}>

@@ -1,19 +1,30 @@
-import React from 'react';
-import { Carousel } from 'antd';
-import './AppCarousel.styles.scss';
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "./AppCarousel.styles.scss";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import img1 from "../../images/1R.png";
+import img2 from "../../images/2R.png";
+import img3 from "../../images/3R.png";
 
 const AppCarousel = () => {
   return (
-    <div className="carousel-container">
-      <Carousel className="carousel" autoplay>
-        <div className="carousel-item">
-          <img src="https://via.placeholder.com/600x400/000000/FFFFFF" alt="Carousel Item 1" />
+    <div className="wrapper-carousel">
+      <Carousel
+        className="carousel"
+        infiniteLoop
+        useKeyboardArrows
+        autoPlay
+        showThumbs={false}
+        
+      >
+        <div>
+          <img src={img1} alt="Item1" />
         </div>
-        <div className="carousel-item">
-          <img src="https://via.placeholder.com/600x400/333333/FFFFFF" alt="Carousel Item 2" />
+        <div>
+          <img src={img2} alt="Item1" />
         </div>
-        <div className="carousel-item">
-          <img src="https://via.placeholder.com/600x400/666666/FFFFFF" alt="Carousel Item 3" />
+        <div>
+          <img src={img3} alt="Item1" />
         </div>
       </Carousel>
     </div>

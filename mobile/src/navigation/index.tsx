@@ -26,4 +26,5 @@ export default function Routes() {
     );
   }
   return isAuthenticated ? <AppRouter /> : <AuthRouter />;
+  // return <AppRouter />;
 }

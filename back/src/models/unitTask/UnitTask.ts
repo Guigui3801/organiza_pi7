@@ -7,7 +7,7 @@ interface UnitTask {
     created_at: Date;
     updated_at: Date;
     deleted_at?:Date;
-    reference:  toDoList;
+    reference?:  toDoList;
     referenceId:string;
     completed:  boolean;
     postponed:  boolean;

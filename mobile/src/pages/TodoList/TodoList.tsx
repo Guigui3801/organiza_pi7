@@ -1,58 +1,26 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import Checkbox from "expo-checkbox";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import TaskCard from "../../components/TaskCard";
+import { Button } from "react-native-paper";
+import { AuthContext } from "../../contexts/AuthContext";
+import fetchUserUnitTasks from "../../services/unitTask"
 
 export default function TodoList() {
-  const [isChecked, setIsChecked] = useState(false);
+  const { user } = useContext(AuthContext);
+
+  const [tasks, setTasks] = useState([]);
+  async function getTasks() {
+    const response = await fetchUserUnitTasks(user.id);
+    setTasks(response);
+  }
+
 
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <View
-        style={{
-          width: 300,
-          height: 200,
-          backgroundColor: "#d9d9d9",
-        }}
-      >
-        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 20, marginTop: 20 }}>
-        <Checkbox
-          style={styles.checkbox}
-          value={isChecked}
-          onValueChange={setIsChecked}
-          color={isChecked ? "#84dcc6" : undefined}
-          />
-        <Text> Tarefa: Lavar a louça</Text>
-          </View>
-        <View
-          style={{
-            marginTop: 10,
-            marginHorizontal: 10,
-            borderBottomColor: "black",
-            borderBottomWidth: StyleSheet.hairlineWidth,
-          }}
-          />
-          <Text style={{marginLeft: 30, marginTop: 30}}> Status: A fazer</Text>
-
-
-          
-      </View>
-    </View>
+    <ScrollView style={{ flex: 1, marginTop: 30}}>
+      {tasks.map((task) => (
+        <TaskCard key={task.id} name={task.name} created_at={task.created_at} completed={task.completed} status={task.status}/>
+      ))}
+    </ScrollView>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 16,
-    marginVertical: 32,
-  },
-  section: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  paragraph: {
-    fontSize: 15,
-  },
-  checkbox: {
-    margin: 8,
-  },
-});
