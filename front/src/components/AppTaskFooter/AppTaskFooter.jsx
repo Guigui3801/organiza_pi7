@@ -4,11 +4,16 @@ import { Button, Menu, Input } from "antd";
 import { CreateTask } from "./AppTask.Service";
 
 
+function CreateTaskHandler () {
+    //Open modal AppTask
+
+}
+
 const AppTaskFooter = () => {
     return (
         <div className="AppTaskFooter">
-            <Button type="primary" onClick={CreateTask}>
-                Create Task
+            <Button type="primary" onClick={CreateTaskHandler}>
+                Minhas Tarefas
             </Button>
         </div>
     );
