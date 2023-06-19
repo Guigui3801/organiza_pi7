@@ -1,15 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Row, Col, Input, Form, Button, notification } from 'antd';
 import { registerUser } from "./AppRegister.services";
 import './AppRegister.styles.scss';
 import { useNavigate } from 'react-router-dom';
 
 const AppRegister = () => {
-    
+    const navigate = useNavigate()    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmpassword, setConfirmpassword] = useState('');
+    
 
     const handleSubmit = async () => {
         //alert(name+" ,"+email+" ,"+password+" ,"+confirmpassword)
