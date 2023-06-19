@@ -1,19 +1,27 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import * as S from "./Login.styles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, user } = useContext(AuthContext);
+  useEffect(() => {
+    console.log(user)
+  
+  }, [user])
+  
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleLogin() {
     if (email === '' || password === ''){
+      alert('Insira as informações')
       return
     }
-    await signIn({email, password})
+    await signIn({email, password}).catch(
+
+    )
   }
 
   return (

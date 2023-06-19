@@ -26,7 +26,7 @@ const AppLogin = () => {
 
   return (
     <Row justify={"center"}>
-      <Col xs={24} sm={24} md={6}>
+            <Col>
         <div className="container">
           <h2>Login</h2>
 
@@ -48,7 +48,10 @@ const AppLogin = () => {
               />
             </Form.Item>
             <Row justify={'center'}>
-              <Button type="default" htmlType="submit">Login</Button>
+              <Button type="default" className="bnt" htmlType="submit">Login</Button>
+              <span onClick={() => navigate('/register')}>
+                Se não tiver uma conta, clique aqui
+              </span>
             </Row>
           </Form>
         </div>
