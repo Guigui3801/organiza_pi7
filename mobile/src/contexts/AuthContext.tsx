@@ -63,7 +63,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       });
       setLoadingAuth(false);
     } catch (err) {
-      console.log("Erro ao acessar", err);
+      alert(`Erro ao acessar: ${err}`);
     }
   }
 
