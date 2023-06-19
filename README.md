@@ -35,13 +35,12 @@ https://www.postgresql.org/download/
 /updateList
 /createList
 
-### v_1.0 (unreleased)
+### v_0.10
 /users
-/userDetails
-/updateUser << new >>
-/userStatus << new >>
 /session
+/userDetails
 /updateList
 /createList
-/createKanban << new >>
-/updateKanban << new >>
+/createUnitTask
+/updateUnitTask
+/userUnitTasks/:user_id

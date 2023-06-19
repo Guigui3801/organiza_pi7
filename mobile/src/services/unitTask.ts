@@ -1,12 +1,9 @@
 import { AuthContext } from "../contexts/AuthContext";
 import { api } from "./api";
-import React, {useContext} from 'react';
-const fetchUserUnitTasks = async () => {
-const {user} = useContext(AuthContext)
 
+const fetchUserUnitTasks = async (id: string) => {
   try {
-    const response = await api.get(`/userUnitTasks/${user.id}`,
-    );
+    const response = await api.get("/userUnitTasks/" + id);
     return response.data;
   } catch (error) {
     console.log("Erro ao buscar:", error);
@@ -14,4 +11,4 @@ const {user} = useContext(AuthContext)
   }
 };
 
-export {fetchUserUnitTasks};
+export default fetchUserUnitTasks;
