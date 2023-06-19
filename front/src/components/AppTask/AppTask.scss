@@ -1,24 +1,122 @@
 .AppTask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .addTask {
+    min-width: 200px;
+  }
+
+  .spacer {
+    height: 5vh;
+  }
+
+  .container {
+    padding: 5% 10% !important;
+  }
+
+  .addMenu {
+    margin-top: 3%;
+    border-radius: 10px;
+    width: 100%;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .showTasks {
+    width: auto;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .Tasks {
+    &.completed {
+      color: green;
+    }
+
+    &.postponed,
+    &.forgot,
+    &.abandoned {
+      color: blue;
+    }
+
+    &.forbidden {
+      color: red;
+    }
+  }
+
+  .TaskColor {
+    padding-bottom: 2vh;
+  }
+
+  .TaskDate {
+    padding-bottom: 3vh;
+  
+    &.completed {
+      color: green;
+    }
+  
+    &.postponed,
+    &.forgot,
+    &.abandoned {
+      color: blue;
+    }
+  
+    &.forbidden {
+      color: red;
+    }
+  }
+}
+
+@media screen and (min-width: 1850px) {
+  .AppTask {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-  
+
     .addTask {
       min-width: 200px;
     }
-  
+
     .spacer {
       height: 5vh;
     }
-  
+
     .container {
       padding: 5% 10% !important;
     }
-    .addMenu{
-        margin-top:3%;
-        border-radius: 10px;
+
+    .addMenu {
+      margin-top: 3%;
+      border-radius: 10px;
+      width: 165%;
+    }
+
+    .showTasks {
+      width: auto;
+    }
+
+    .Tasks {
+      padding-left: -5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .TaskColor {
+      padding-bottom: 2vh;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
-  
+}
