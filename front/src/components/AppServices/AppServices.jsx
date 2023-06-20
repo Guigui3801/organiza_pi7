@@ -16,8 +16,8 @@ const AppServices = () => {
         <div className="task-service">
           <h1>Lista de tarefas</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis tristique sem, vel faucibus nisl fringilla nec.
+            Para se organizar melhor é necessário seguir passos, por isso montar
+            uma rotina é ideal para a oraganização.
           </p>
         </div>
       </div>
