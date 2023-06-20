@@ -10,10 +10,11 @@
     "eject": "react-scripts eject",
     "watch:back": "npm run --prefix ./Back dev",
     "watch:front": "npm run --prefix ./Front start",
-    "ignite": "concurrently npm:watch:*"    
+    "ignite": "concurrently npm:watch:*"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
+    "moment": "^2.29.4",
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {

@@ -17,8 +17,7 @@ const CreateTask = (name) => {
     abandoned: false,
     created_at: new Date().toLocaleDateString(),
     updated_at: new Date().toLocaleDateString(),
-    // id: null,
-    //userID from localstorage
+    reference: id,
     referenceId: id,
   };
   try {
