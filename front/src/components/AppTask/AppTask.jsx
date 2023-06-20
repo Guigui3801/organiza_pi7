@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AppTask.scss";
 import { Button, Menu, Input, notification } from "antd";
 import { CreateTask, getTasks } from "./AppTask.Service";
-import { FaBars, FaTimes } from "react-icons/fa";
-import moment from "moment/moment";
+import moment from "moment";
 import { Link } from "react-router-dom";
 
 const AppTask = () => {
