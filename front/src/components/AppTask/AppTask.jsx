@@ -1,57 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AppTask.scss";
 import { Button, Menu, Input } from "antd";
-import { CreateTask } from "./AppTask.Service";
-
-const taskData = [
-    {
-        id: 1,
-        name: "Exemplo Concluida",
-        created_at: "10/10/2021",
-        completed: true,
-        postponed: false,
-        forgot: false,
-        abandoned: false,
-        forbidden: false,
-    },
-    {
-        id: 2,
-        name: "Exemplo Abandonada",
-        created_at: "10/10/2021",
-        completed: false,
-        postponed: false,
-        forgot: false,
-        abandoned: true,
-        forbidden: false,
-    },
-    {
-        id: 3,
-        name: "Exemplo incompleta",
-        created_at: "10/10/2021",
-        completed: false,
-        postponed: false,
-        forgot: false,
-        abandoned: false,
-        forbidden: false,
-    },
-    {
-        id: 4,
-        name: "Exemplo Proibida",
-        created_at: "10/10/2021",
-        completed: false,
-        postponed: false,
-        forgot: false,
-        abandoned: false,
-        forbidden: true,
-    }
-
-];
+import { CreateTask, getTasks } from "./AppTask.Service";
 
 const AppTask = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [tasks, setTasks] = useState('');
     const [menuTarefasOpen, setMenuTarefasOpen] = useState(false);
 
+    useEffect(() => {
+        getTasksByUser();
+    }, [])
+
+    async function getTasksByUser() {
+       await getTasks().then((resp) => {
+            const {data} = resp
+            setTasks(data)
+        })
+    }
 
     const handleAdd = () => {
         setMenuOpen(!menuOpen);
@@ -60,7 +27,7 @@ const AppTask = () => {
         setMenuTarefasOpen(!menuTarefasOpen);
     }
     const handleAppend = () => {
-        if (inputValue != '') {
+        if (inputValue !== '') {
             CreateTask(inputValue);
             setInputValue('');
         }
@@ -89,10 +56,10 @@ const AppTask = () => {
                 </Button>
                 <div className="spacer" />
                 <Menu mode="inline" className={`showTasks ${menuTarefasOpen ? '' : 'hidden'}`}>
-                    {taskData.length === 0 ? (
+                    {tasks.length === 0 ? (
                         <p className="Tasks">Todas as tarefas concluídas!</p>
                     ) : (
-                        taskData.map((task) => (
+                        tasks.map((task) => (
                             <div key={task.id} className="Tasks">
                                 <p className="TaskColor">
                                     {task.name}
