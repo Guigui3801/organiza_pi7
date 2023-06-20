@@ -1,36 +1,33 @@
-.AppTask {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+ .AppTask {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
 
-  .addTask {
-    min-width: 200px;
-  }
+   .addTask {
+     min-width: 200px;
+   }
 
-  .spacer {
-    height: 5vh;
-  }
+   .spacer {
+     height: 5vh;
+   }
 
-  .container {
-    padding: 5% 10% !important;
-  }
+   .container {
+     padding: 5% 10% !important;
+     width: auto;
+   }
 
-  .addMenu {
-    margin-top: 3%;
-    border-radius: 10px;
-    width: 100%;
+   .addMenu {
+     margin-top: 3%;
+     border-radius: 10px;
+     width: 165%;
+   }
 
-    &.hidden {
-      display: none;
-    }
-  }
-
-  .showTasks {
-    width: auto;
-  }
-
+   .showTasks {
+     width: auto;
+   }
   .hidden {
     display: none;
   }
@@ -74,7 +71,7 @@
   }
 }
 
-@media screen and (min-width: 1850px) {
+@media screen and (min-width: 1800px) {
   .AppTask {
     display: flex;
     flex-direction: column;
@@ -92,6 +89,7 @@
 
     .container {
       padding: 5% 10% !important;
+      width: auto;
     }
 
     .addMenu {
