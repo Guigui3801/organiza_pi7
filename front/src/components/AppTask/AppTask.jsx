@@ -12,7 +12,7 @@ const AppTask = () => {
 
   useEffect(() => {
     getTasksByUser();
-  }, []);
+  }, [tasks]);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
