@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./AppTask.scss";
 import { Button, Menu, Input, notification } from "antd";
 import { CreateTask, getTasks } from "./AppTask.Service";
-import moment from "moment"; 
 import { Link } from "react-router-dom";
 
 const AppTask = () => {
@@ -14,6 +13,19 @@ const AppTask = () => {
   useEffect(() => {
     getTasksByUser();
   }, []);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+  
+    // Formate o dia e o mês para sempre terem dois dígitos
+    const formattedDay = day < 10 ? `0${day}` : day;
+    const formattedMonth = month < 10 ? `0${month}` : month;
+  
+    return `${formattedDay}/${formattedMonth}/${year}`;
+  };
 
   async function getTasksByUser() {
     await getTasks().then((resp) => {
@@ -92,7 +104,7 @@ const AppTask = () => {
                       : ""
                   }`}
                 >
-                  Criado Em:{moment(task.created_at).format("DD/MM/YYYY")}
+                  Criado Em:{formatDate(task.created_at)}
                 </p>
               </div>
             ))
