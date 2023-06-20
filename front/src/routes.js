@@ -13,20 +13,20 @@ import Pomodoro from "./components/AppPomodoro/AppPomodoro";
 
 export default function Router() {
   return (
-    <BrowserRouter>
-      <AppHeader />
-      <Routes>
-        <Route path={"/"} element={<Home />} />
-        <Route path={"/about"} element={<About />} />
-        <Route path={"/contact"} element={<Contact />} />
-        <Route path={"/services"} element={<Services />} />
-        <Route path={"/kanban/:id"} element={<Kanban />} />
-        <Route path={"/register"} element={<Register />} />
-        <Route path={"/login"} element={<Login />} />
-        <Route path={"/pomodoro"} element={<Pomodoro />} />
+    <BrowserRouter >
+        <AppHeader />
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/about"} element={<About />} />
+          <Route path={"/contact"} element={<Contact />} />
+          <Route path={"/services"} element={<Services />} />
+          <Route path={"/kanban/:id"} element={<Kanban />} />
+          <Route path={"/register"} element={<Register />} />
+          <Route path={"/login"} element={<Login />} />
+          <Route path={"/pomodoro"} element={<Pomodoro />} />
 
-        <Route path={"*"} element={<Error />} />
-      </Routes>
+          <Route path={"*"} element={<Error />} />
+        </Routes>
     </BrowserRouter>
   );
 }

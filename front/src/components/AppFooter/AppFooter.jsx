@@ -8,9 +8,8 @@ export default function AppFooter  ()  {
     <Footer className="footer-container fixed-footer">
       <Row>
         <Col xs={24} sm={24} md={6}>
-          <div className="logo-container">
-            <img src="https://www.ORGANIZA.com.br/Static/Images/NikeLogo.svg" alt="ORGANIZA" className="logo" />
-          </div>
+          <div className="logo-container" />
+
         </Col>
         <Col xs={24} sm={24} md={18}>
           <Row>
