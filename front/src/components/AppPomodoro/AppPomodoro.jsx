@@ -7,6 +7,7 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import "./AppPomodoro.styles.scss";
+import AppTaskFooter from "../AppTaskFooter/AppTaskFooter";
 
 const Pomodoro = () => {
   const [cycles, setCycles] = useState(1);
@@ -97,7 +98,8 @@ const Pomodoro = () => {
     setCycles(cycles + 1);
   };
 
-  return (
+  return (<div style={{display: "flex", flexDirection: "column"}}>
+
     <div className="pomodoro">
       <h1>Pomodoro</h1>
       {currentPhase === "break" && <p className="interview">Intervalo</p>}
@@ -128,6 +130,11 @@ const Pomodoro = () => {
           </button>
         </div>
       </div>
+    </div>
+    <div style={{flexGrow:2, alignContent:"end", height: '20vh' }}>
+
+    </div>
+  <AppTaskFooter/>
     </div>
   );
 };
