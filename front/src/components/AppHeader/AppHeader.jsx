@@ -36,7 +36,19 @@ function Navbar() {
             <Link to={"/kanban/1"}>TO DO's</Link>
           </>
         ) : null}
-        <Link className="login-nav-hidden">Fazer Login</Link>
+        {!isLogged ? (
+        <>
+          <Link className="login-nav-hidden" to={"/login"}>
+            Fazer Login
+          </Link>
+        </>
+      ) : (
+        <>
+          <Link  className="login-nav-hidden" to={"#"} onClick={() => logout()}>
+            Sair
+          </Link>
+        </>
+      )}
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>

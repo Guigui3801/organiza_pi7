@@ -131,10 +131,10 @@ const Pomodoro = () => {
         </div>
       </div>
     </div>
-    <div style={{flexGrow:2, alignContent:"end", height: '20vh' }}>
+    <div style={{flexGrow:2, alignContent:"end", height: '20vh', margin: '30px 300px 30px 300px' }}>
 
-    </div>
   <AppTaskFooter/>
+    </div>
     </div>
   );
 };
