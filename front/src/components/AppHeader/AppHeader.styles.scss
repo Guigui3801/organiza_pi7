@@ -89,6 +89,9 @@ nav {
     background-color: var(--mainColor);
     transition: 1s;
   }
+  .link{
+    display: none;
+  }
   .login-btn {
     display: none;
   }
